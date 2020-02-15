@@ -255,7 +255,7 @@ class RemoteComponent(ComponentBase, RemoteComponentBase, ServiceContainer):
         c = self._tx.comp.add()
         c.name = self.name
         c.no_create = self.no_create  # for now we create the component
-        for name, pin in self.pinsbyname.iteritems():
+        for name, pin in self.pinsbyname.items():
             p = c.pin.add()
             p.name = '%s.%s' % (self.name, name)
             p.type = pin.pintype
