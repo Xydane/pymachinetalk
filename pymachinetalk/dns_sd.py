@@ -91,7 +91,7 @@ class Service(object):
         self.version = info.properties.get(b'version', b'')
         self.host_name = info.server
         try:
-            self.host_address = socket.inet_ntoa(info.address)
+            self.host_address = six.ensure_str(socket.inet_ntoa(info.address))
         except (OSError, socket.error):
             self.host_address = info.address.decode()
         self._update_uri()
